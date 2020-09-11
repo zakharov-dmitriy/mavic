@@ -1,0 +1,504 @@
+@import "vars";
+@import "libs";
+@import "fonts";
+@import "global";
+
+.header {
+   position: fixed;
+   left: 0;
+   top: 30px;
+   right: 0;
+   z-index: 10;
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 30;
+      @extend %ubuntu-medium;
+      font-size: 15px;
+      line-height: 17px;
+      text-transform: uppercase;
+   }
+   &__btn {
+      padding: 6px 28px;
+      margin-right: 8px;
+      color: #fff;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      &:hover {
+         background-color: #fff;
+         color: #1c1c1c;
+      }
+   }
+   &__phone {
+      @extend %ubuntu-bold;
+      font-size: 16px;
+      line-height: 18px;
+   }
+}
+.menu {
+   &__list-item {
+      display: inline-block;
+      & + .menu__list-item {
+         padding-left: 20px;
+      }
+      &.active a {
+         color: #f77272;
+      }
+   }
+   &__list-phone {
+      display: none;
+   }
+   &__btn {
+      display: none;
+   }
+}
+.top {
+   background: url(../images/top-bg.jpg) no-repeat top center / cover;
+   &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+         45.97% 54.43% at 50% 45.57%,
+         rgba(23, 26, 28, 0) 50.28%,
+         rgba(23, 26, 28, 0.00225974) 50.29%,
+         rgba(4, 5, 5, 0.820343) 58.72%,
+         rgba(5, 5, 6, 0.792703) 80.08%,
+         #000000 87.89%
+      );
+      opacity: 0.4;
+   }
+   &__wrapper {
+      display: flex;
+      align-items: flex-end;
+   }
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+   }
+   &__title {
+      margin-bottom: 25px;
+      @extend %sf-semibold;
+      font-size: 96px;
+      line-height: 115px;
+   }
+   &__text {
+      margin: 25px 0 35px;
+      max-width: 325px;
+   }
+   &__social-item {
+      display: inline-block;
+      margin: 0 25px;
+   }
+   &__social-link {
+      opacity: 0.5;
+      transition: all 0.3s;
+      &:hover {
+         opacity: 1;
+      }
+   }
+}
+.products {
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 50px;
+   }
+   &__text {
+      max-width: 440px;
+      p {
+         margin-bottom: 30px;
+      }
+   }
+   &__slider-box {
+      position: relative;
+      padding-top: 97px;
+   }
+   &__slider-text {
+      width: 280px;
+      position: absolute;
+      bottom: 30px;
+      left: -250px;
+      z-index: 2;
+      text-align: right;
+      @extend %ubuntu-medium;
+      font-size: 24px;
+      line-height: 28px;
+   }
+   &__slider {
+      max-width: 560px;
+      &::before {
+         content: "";
+         position: absolute;
+         width: 560px;
+         height: 276px;
+         border: 4px solid #fff;
+         top: -15px;
+         right: -17px;
+      }
+   }
+}
+.slider-btn {
+   padding: 16px 26px;
+   position: absolute;
+   bottom: -48px;
+   right: 0;
+   z-index: 3;
+   background-color: #fff;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   svg {
+      stroke: #1c1c1c;
+   }
+   &__left {
+      right: 60px;
+   }
+   &.slick-disabled {
+      background-color: #1c1c1c;
+      svg {
+         stroke: #fff;
+      }
+   }
+}
+.benefits {
+   &__items {
+      display: flex;
+      padding-left: 25px;
+      flex-wrap: wrap;
+   }
+   &__item {
+      margin-bottom: 100px;
+      display: flex;
+      align-items: flex-end;
+      &:nth-child(even) {
+         margin-left: 40px;
+         transform: translateY(25px);
+      }
+      &:nth-child(3) {
+         margin-left: 30px;
+      }
+      &:nth-child(4) {
+         margin-left: 60px;
+      }
+      &:first-child,
+      &:nth-child(3) {
+         position: relative;
+         &::before,
+         &::after {
+            content: "";
+            position: absolute;
+         }
+      }
+      &:first-child {
+         &::before {
+            top: 31px;
+            right: -56px;
+            height: 48px;
+            width: 245px;
+            background: url(../images/line-01.svg) no-repeat 0 0;
+         }
+      }
+      &:nth-child(3) {
+         &::before {
+            top: 50px;
+            right: -55px;
+            width: 254px;
+            height: 43px;
+            background: url(../images/line-03.svg) no-repeat 0 0;
+         }
+         &::after {
+            top: -70px;
+            right: -55px;
+            width: 463px;
+            height: 62px;
+            background: url(../images/line-02.svg) no-repeat 0 0;
+         }
+      }
+   }
+   &__num {
+      margin-right: 10px;
+      @extend %ubuntu-bold;
+      font-size: 36px;
+      line-height: 41px;
+   }
+   &__img {
+      position: relative;
+      margin-right: 32px;
+      &::before {
+         content: "";
+         position: absolute;
+         right: -12px;
+         top: -12px;
+         z-index: -1;
+         width: 193px;
+         height: 128px;
+         border: 2px solid #fff;
+      }
+   }
+   &__info {
+      width: 300px;
+      &-title {
+         width: 123px;
+         margin-bottom: 10px;
+         @extend %ubuntu-bold;
+         font-size: 21px;
+         line-height: 24px;
+      }
+      &-text {
+         font-size: 15px;
+         line-height: 18px;
+      }
+   }
+}
+.specification {
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 25px;
+   }
+   &__item--center {
+      margin-left: -15px;
+      margin-right: -15px;
+   }
+   &__box {
+      width: 280px;
+      position: relative;
+      margin-top: 10px;
+      &::before {
+         content: "";
+         position: absolute;
+         background-repeat: no-repeat;
+         background-position: 0 0;
+         background-size: contain;
+      }
+   }
+   &__box-2 {
+      margin-top: 140px;
+   }
+   &__box-4 {
+      margin-top: 160px;
+   }
+   &__box-1::before {
+      width: 229px;
+      height: 114px;
+      top: 16px;
+      right: -140px;
+      background: url(../images/pointer-01.svg);
+   }
+   &__box-2::before {
+      width: 346px;
+      height: 81px;
+      top: -65px;
+      right: -308px;
+      background: url(../images/pointer-02.svg);
+   }
+   &__box-3::before {
+      width: 258px;
+      height: 103px;
+      top: 16px;
+      left: -299px;
+      background: url(../images/pointer-03.svg);
+   }
+   &__box-4::before {
+      width: 124px;
+      height: 89px;
+      left: -172px;
+      top: -73px;
+      background: url(../images/pointer-04.svg);
+   }
+
+   &__box-title {
+      margin-bottom: 10px;
+      @extend %ubuntu-bold;
+      font-size: 21px;
+      line-height: 28px;
+   }
+   &__box-text {
+      font-size: 15px;
+      line-height: 18px;
+   }
+}
+.questions {
+   &__items {
+      max-width: 757px;
+      padding-bottom: 15px;
+   }
+   &__item {
+      position: relative;
+      max-width: 690px;
+      background: rgba(0, 0, 0, 0.3);
+      &:nth-child(3)::before {
+         content: "";
+         position: absolute;
+         width: 319px;
+         height: 125px;
+         top: -33px;
+         right: -386px;
+         background: url(../images/questions-bg.png);
+      }
+   }
+   &__item-title {
+      padding: 20px 10px 20px 40px;
+      margin-bottom: 4px;
+      @extend %ubuntu-medium;
+      font-size: 21px;
+      line-height: 28px;
+      color: rgba(#fff, 0.8);
+      position: relative;
+      cursor: pointer;
+      &::after {
+         content: url(../images/accordion-arrow.svg);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         position: absolute;
+         width: 72px;
+         height: 67px;
+         background-color: #fff;
+         right: -72px;
+         top: 0;
+      }
+   }
+   &__item-text {
+      display: none;
+      margin: 0 0 4px;
+      padding: 0 5px 75px 50px;
+      font-size: 15px;
+      line-height: 22px;
+   }
+   &__item.questions__item--active {
+      .questions__item-title::after {
+         transform: rotate(180deg);
+      }
+      .questions__item-text {
+         display: block;
+      }
+   }
+}
+.contacts {
+   &__inner {
+      display: flex;
+      padding-left: 25px;
+   }
+   &__info {
+      width: 240px;
+      margin-right: 60px;
+   }
+   &__info-box {
+      margin-bottom: 30px;
+   }
+   &__info-title {
+      margin: 0 0 13px;
+      @extend %ubuntu-bold;
+      line-height: 24px;
+      font-size: 21px;
+   }
+   &__info-email,
+   &__info-phone {
+      font-size: 15px;
+      line-height: 18px;
+   }
+   &__info-email:hover {
+      text-decoration: underline;
+   }
+   &__form {
+      width: 570px;
+      margin-right: 106px;
+   }
+   &__form-title {
+      margin: 0 0 13px;
+      @extend %ubuntu-bold;
+      line-height: 24px;
+      font-size: 21px;
+   }
+   &__form-text {
+      margin: 0 0 12px;
+      font-size: 15px;
+      line-height: 18px;
+   }
+   &__form-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+   }
+   &__form-input,
+   &__form-textarea {
+      padding: 15px;
+      @extend %ubuntu-regular;
+      font-size: 13px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      outline: none;
+      &::placeholder {
+         color: rgba(#fff, 0.4);
+      }
+   }
+   &__form-input {
+      width: 49%;
+   }
+   &__form-textarea {
+      width: 100%;
+      min-height: 144px;
+      margin-bottom: 20px;
+      resize: none;
+   }
+   &__form-btn {
+      padding: 9px 15px;
+      @extend %ubuntu-bold;
+      font-size: 14px;
+      line-height: 16px;
+      color: #ffffff;
+      background: transparent;
+      border: 1px solid #fff;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.5s;
+      &:hover {
+         background-color: #fff;
+         color: #1c1c1c;
+      }
+   }
+   &__social-list {
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+   }
+   &__social-item {
+      margin: 14px 0;
+   }
+   &__social-link {
+      opacity: 0.5;
+      transition: all 0.3s;
+      &:hover {
+         opacity: 1;
+      }
+   }
+}
+.footer {
+   position: absolute;
+   bottom: 32px;
+   left: 0;
+   right: 0;
+   &__copy {
+      text-align: right;
+      font-size: 13px;
+      line-height: 15px;
+      color: rgba(#fff, 0.64);
+   }
+}
+@import "media";
+// @import "../../node_modules/slick-carousel/slick/slick";
+// @import "../../node_modules/magnific-popup/dist/magnific-popup";
